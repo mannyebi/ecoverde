@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}Agents{% endblock title %}
+
+{% block agent %}active{% endblock agent %}
+
+
+{% block body %}
+
+
+  <section
+  class="hero-wrap hero-wrap-2"
+  style="
+    background-image: url({% static 'images/xbg_1.jpg.pagespeed.ic.XHJORU-GJg.jpg' %});
+  "
+  data-stellar-background-ratio="0.5"
+  >
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+    >
+      <div class="col-md-9 ftco-animate pb-0 text-center">
+        <p class="breadcrumbs">
+          <span class="mr-2"
+            ><a href="index.html"
+              >Home <i class="fa fa-chevron-right"></i></a
+          ></span>
+          <span>Agents <i class="fa fa-chevron-right"></i></span>
+        </p>
+        <h1 class="mb-3 bread">Agents</h1>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section class="ftco-section ftco-agent">
+  <div class="container">
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <span class="subheading">Agents</span>
+        <h2 class="mb-4">Our Agents</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <!------------------for loop -------------------->
+          {% for agent in agents %}
+            <div class="col-md-3 ftco-animate">
+              <div class="agent">
+                <div class="img">
+                  <img
+                    src="{% static 'images/xteam-1.jpg.pagespeed.ic.XdGG32VxIm.jpg' %}"
+                    class="img-fluid"
+                    alt="Colorlib Template"
+                    data-pagespeed-url-hash="2148634814"
+                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+                  />
+                  <div class="desc">
+                    <h3><a href="properties.html">{{agent.username}}</a></h3>
+                    <p class="h-info">
+                      <span class="location">Listing</span>
+                      <span class="details">{{agent.listings.all.count}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          <!------------------for loop -------------------->
+      </div>
+
+
+  </div>
+  </section>
+
+
+{% endblock body %}

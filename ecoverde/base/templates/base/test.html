@@ -1,0 +1,8 @@
+{% load custom_tags %}
+
+<h1>hjiiii</h1>
+
+{{ author | modify_name:"first_name"}}<br>
+{{ author | modify_name:"last_name"}}<br>
+{{ author | modify_name:"title_case"}}<br>
+{{ author | modify_name:"first_name" | modify_name:"title_case"}}<br>

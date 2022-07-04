@@ -1,0 +1,92 @@
+<section class="ftco-section ftco-no-pb ftco-no-pt search-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-wrap-1 ftco-animate p-4">
+          <form action="{% url 'properties' %}" method="GET">
+            <div class="row">
+              <div class="col-lg align-items-end">
+                <div class="form-group">
+                  <label for="#">Keyword</label>
+                  <div class="form-field">
+                    <div class="icon">
+                      <span class="fa fa-search"></span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Keyword"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg align-items-end">
+                <div class="form-group">
+                  <label for="#">Property Type</label>
+                  <div class="form-field">
+                    <div class="select-wrap">
+                      <div class="icon">
+                        <span class="fa fa-chevron-down"></span>
+                      </div>
+                      <select name="type" class="form-control">
+                        <option value="">Choose a type</option>
+                          {% for type in types %}
+                            <option name='type' value="{{type.name}}" style='color:rgba(0, 0, 0, 0.8)'>{{type.name}}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg align-items-end">
+                <div class="form-group">
+                  <label for="#">Location</label
+                  >
+                  <div class="form-field">
+                    <div class="icon">
+                      <span class="fa fa-search"></span>
+                    </div>
+                    <input
+                      name="location"
+                      type="text"
+                      class="form-control"
+                      placeholder="Location"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg align-items-end">
+                <div class="form-group">
+                  <label for="#">Price limit</label>
+                  <div class="form-field">
+                    <div class="icon">
+                      <span class="fa fa-search"></span>
+                    </div>
+                    <input
+                      name="price"
+                      type="number"
+                      class="form-control"
+                      placeholder="Price limit"
+                      value="0" 
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg align-self-end">
+                <div class="form-group">
+                  <div class="form-field">
+                    <input
+                      type="submit"
+                      value="Search"
+                      class="form-control btn btn-primary"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

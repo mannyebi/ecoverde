@@ -1,0 +1,166 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}properties{% endblock title %}
+
+{% block properties %}active{% endblock properties %}
+
+{% block body %}
+
+
+  {% include 'base/hero.html' %}
+  {% include 'base/searchbox.html' %}
+<section class="ftco-section goto-here">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+      <span class="subheading">What we offer</span>
+      <h2 class="mb-2">Properties</h2>
+    </div>
+  </div>
+  <div class="row">
+    {% for property in properties %}
+      {% if price_limit > 0 %}
+        {% if property.price <= price_limit %}
+        <div class="col-md-4">
+          <div class="property-wrap ftco-animate">
+            <a
+              href="{% url 'properties_detail' property.id %}"
+              class="img"
+              style="background-image: url({{property.image.url}})"
+            >
+            {% if property.status == "rent" %}
+              <div class="rent-sale">
+                <span class="rent">{{property.status}}</span>
+              </div>
+                <p class="price">
+                  <span class="orig-price">${{property.price}}<small> / mo</small></span>
+                </p>
+              {% else %}
+                <div class="rent-sale">
+                  <span class="sale">{{property.status}}</span>
+                </div>
+                <p class="price">
+                  <span class="orig-price">${{property.price}}</span>
+                </p>
+              {% endif %}
+            </a>
+            <div class="text">
+              <ul class="property_list">
+                <li class="fa-solid fa-bed-empty"><i class="fa-solid fa-bed"></i> 3</li>
+                <li><i class="fa-solid fa-bath"></i>2</li>
+                <li><span class="flaticon-floor-plan"></span>{{property.Lot_Area}} sqft</li>
+              </ul>
+              <h3><a href="#">{{property.title}}</a></h3>
+              <span class="location">{{property.region.city}}</span>
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-center btn-custom"
+              >
+                <span class="fa fa-link"></span>
+              </a>
+              <div
+                class="list-team d-flex align-items-center mt-2 pt-2 border-top"
+              >
+                <div class="d-flex align-items-center">
+                  <div
+                    class="img"
+                    style="
+                    background-image: url(images/xwork-1.jpg.pagespeed.ic.kJbcYAoUnI.jpg);
+                    "
+                  ></div>
+                  <h3 class="ml-2">{{property.host}}</h3>
+                </div>
+                <span class="text-right">{{property.created | timesince}} ago</span>
+              </div>
+              <div class='tags_box'>
+                  <p>{{property.tags.name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% elif price_limit <= 0 %}
+        <div class="col-md-4">
+          <div class="property-wrap ftco-animate">
+            <a
+              href="{% url 'properties_detail' property.id %}"
+              class="img"
+              style="background-image: url({{property.image.url}})"
+            >
+            {% if property.status == "rent" %}
+              <div class="rent-sale">
+                <span class="rent">{{property.status}}</span>
+              </div>
+                <p class="price">
+                  <span class="orig-price">${{property.price}}<small> / mo</small></span>
+                </p>
+              {% else %}
+                <div class="rent-sale">
+                  <span class="sale">{{property.status}}</span>
+                </div>
+                <p class="price">
+                  <span class="orig-price">${{property.price}}</span>
+                </p>
+              {% endif %}
+            </a>
+            <div class="text">
+              <ul class="property_list">
+                <li class="fa-solid fa-bed-empty"><i class="fa-solid fa-bed"></i> 3</li>
+                <li><i class="fa-solid fa-bath"></i>2</li>
+                <li><span class="flaticon-floor-plan"></span>{{property.Lot_Area}} sqft</li>
+              </ul>
+              <h3><a href="#">{{property.title}}</a></h3>
+              {% if property.Region.city != " " %}
+                <span span class="location">{{property.Region.city}}</span>
+              {% else %}
+                <span class="location">undefined</span>
+              {% endif %}
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-center btn-custom"
+              >
+                <span class="fa fa-link"></span>
+              </a>
+              <div
+                class="list-team d-flex align-items-center mt-2 pt-2 border-top"
+              >
+                <div class="d-flex align-items-center">
+                  <div
+                    class="img"
+                    style="
+                    background-image: url(images/xwork-1.jpg.pagespeed.ic.kJbcYAoUnI.jpg);
+                    "
+                  ></div>
+                  <h3 class="ml-2">{{property.host}}</h3>
+                </div>
+                <span class="text-right">{{property.created | timesince}} ago</span>
+              </div>
+              <div class='tags_box'>
+                  <p>{{property.tags.name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="row mt-5">
+    <div class="col text-center">
+      <div class="block-27">
+        <ul>
+          <li><a href="#">&lt;</a></li>
+          <li class="active"><span>1</span></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&gt;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% endblock body %}

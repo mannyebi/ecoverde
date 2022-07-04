@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/62439279be.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/A.animate.css+owl.carousel.min.css+owl.theme.default.min.css+magnific-popup.css+flaticon.css+style.css,Mcc.kKlEJ0M4XR.css.pagespeed.cf.Ajj9ERp_n3.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"
+    ></script>
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+
+  <style>
+    @media all and (max-width: 900px) {
+      .mfp-arrow {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+      }
+      .mfp-container {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+    /*
+        Flaticon icon font: Flaticon
+        Creation date: 04/01/2019 13:45
+        */
+
+    @font-face {
+      font-family: "Flaticon";
+      src: url("{% static 'font/Flaticon.eot' %}");
+      src: url("{% static 'font/Flaticon.eot?#iefix' %}")
+          format("embedded-opentype"),
+        url("{% static 'font/Flaticon.woff' %}") format("woff"),
+        url("{% static 'font/Flaticon.ttf' %}") format("truetype"),
+        url("{% static 'font/Flaticon.svg#Flaticon' %}") format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      @font-face {
+        font-family: "Flaticon";
+        src: url("{% static 'font/Flaticon.svg#Flaticon' %}") format("svg");
+      }
+    }
+  </style>
+
+  <body>
+    {% block body %} {% endblock body %}
+
+    <!--nav bar template-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Ecoverde</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item {% block home %}{% endblock home %}">
+              <a href="{% url 'home' %}" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item {% block about %}{% endblock about %}">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item {% block agent %}{% endblock agent %}">
+              <a href="{% url 'agents' %}" class="nav-link">Agent</a>
+            </li>
+            <li class="nav-item {% block services %}{% endblock services %}">
+              <a href="services.html" class="nav-link">Services</a>
+            </li>
+            <li
+              class="nav-item {% block properties %}{% endblock properties %}"
+            >
+              <a href="{% url 'properties' %}" class="nav-link">Properties</a>
+            </li>
+            <li class="nav-item {% block blog %}{% endblock blog %}">
+              <a href="{% url 'blogs' %}" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item {% block contact %}{% endblock contact %}">
+              <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item {% block profile %}{% endblock profile %}">
+              <a href="{% url 'login' %}" class='nav-link'><i class="fa-solid fa-user" style="cursor:pointer;"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% include 'footer.html' %}
+  </body>
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js+popper.min.js+bootstrap.min.js.pagespeed.jc.k6c8L3snT4.js' %}"></script>
+  <script>
+    eval(mod_pagespeed_Dnr1lD7$wP);
+  </script>
+  <script>
+    eval(mod_pagespeed_wAzXo_fhMX);
+  </script>
+  <script>
+    eval(mod_pagespeed_zqIngmmgmy);
+  </script>
+  <script src="{% static 'js/jquery.easing.1.3.js+jquery.waypoints.min.js+jquery.stellar.min.js+owl.carousel.min.js.pagespeed.jc.mRMGciet84.js' %}"></script>
+  <script>
+    eval(mod_pagespeed_o$LkHNf2Dr);
+  </script>
+  <script>
+    eval(mod_pagespeed_xs1ofvnq8X);
+  </script>
+  <script>
+    eval(mod_pagespeed_bn6IjTrCbW);
+  </script>
+  <script>
+    eval(mod_pagespeed_c11$6rkAFX);
+  </script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js+jquery.animateNumber.min.js+scrollax.min.js+google-map.js+main.js.pagespeed.jc.CFL00CXwRr.js' %}"></script>
+  <script>
+    eval(mod_pagespeed_btjJ866rJr);
+  </script>
+  <script>
+    eval(mod_pagespeed_baX$Zy1AyA);
+  </script>
+  <script>
+    eval(mod_pagespeed_311SWRXJz1);
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script>
+    eval(mod_pagespeed_R1gA4l0Tx9);
+  </script>
+  <script>
+    eval(mod_pagespeed_rgb68BMT3Y);
+  </script>
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-23581568-13");
+  </script>
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+    integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+    data-cf-beacon='{"rayId":"7192540ebe04542b","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
+    crossorigin="anonymous"
+  ></script>
+</html>

@@ -1,0 +1,385 @@
+{% extends 'panel/main.html' %}
+{% load static %}
+{% load humanize %}
+{% block body %}
+    <section class="main_content dashboard_part large_header_bg">
+        <div class="container-fluid g-0">
+        <div class="row">
+            <div class="col-lg-12 p-0">
+            <div
+                class="header_iner d-flex justify-content-between align-items-center"
+            >
+                <div class="sidebar_icon d-lg-none">
+                <i class="ti-menu"></i>
+                </div>
+                <div class="line_icon open_miniSide d-none d-lg-block">
+                <img src="{% static 'panelimage/line_img.png' %}" alt="" />
+                </div>
+                <div class="serach_field-area d-flex align-items-center">
+                <div class="search_inner">
+                    <h3>Hello {{request.user}}</h3>
+                </div>
+                </div>
+                <div
+                class="header_right d-flex justify-content-between align-items-center"
+                >
+                <div class="header_notification_warp d-flex align-items-center">
+                    <li>
+                    <a class="bell_notification_clicker" href="#">
+                        <img src="{% static 'panelimage/icon/bell.svg' %}" alt="" />
+                        <span>2</span>
+                    </a>
+
+                    <div class="Menu_NOtification_Wrap">
+                        <div class="notification_Header">
+                        <h4>Notifications</h4>
+                        </div>
+                        <div class="Notification_body">
+                        <div class="single_notify d-flex align-items-center">
+                            <div class="notify_thumb">
+                            <a href="#"><img src="{% static 'panelimage/staf/2.png' %}" alt="" /></a>
+                            </div>
+                            <div class="notify_content">
+                            <a href="#"><h5>Cool Marketing</h5></a>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+
+                        <div class="single_notify d-flex align-items-center">
+                            <div class="notify_thumb">
+                            <a href="#"><img src="{% static 'panelimage/staf/4.png' %}" alt="" /></a>
+                            </div>
+                            <div class="notify_content">
+                            <a href="#"><h5>Awesome packages</h5></a>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+
+                        <div class="single_notify d-flex align-items-center">
+                            <div class="notify_thumb">
+                            <a href="#"><img src="{% static 'panelimage/staf/3.png' %}" alt="" /></a>
+                            </div>
+                            <div class="notify_content">
+                            <a href="#"><h5>what a packages</h5></a>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+
+                        <div class="single_notify d-flex align-items-center">
+                            <div class="notify_thumb">
+                            <a href="#"><img src="{% static 'panelimage/staf/2.png' %}" alt="" /></a>
+                            </div>
+                            <div class="notify_content">
+                            <a href="#"><h5>Cool Marketing</h5></a>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+
+                        <div class="single_notify d-flex align-items-center">
+                            <div class="notify_thumb">
+                            <a href="#"><img src="{% static 'panelimage/staf/4.png' %}" alt="" /></a>
+                            </div>
+                            <div class="notify_content">
+                            <a href="#"><h5>Awesome packages</h5></a>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+
+                        <div class="single_notify d-flex align-items-center">
+                            <div class="notify_thumb">
+                            <a href="#"><img src="{% static 'panelimage/staf/3.png' %}" alt="" /></a>
+                            </div>
+                            <div class="notify_content">
+                            <a href="#"><h5>what a packages</h5></a>
+                            <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="nofity_footer">
+                        <div class="submit_button text-center pt_20">
+                            <a href="#" class="btn_1">See More</a>
+                        </div>
+                        </div>
+                    </div>
+                    </li>
+                    <li>
+                    <a class="CHATBOX_open" href="#">
+                        <img src="{% static 'panelimage/icon/msg.svg' %}" alt="" /> <span>2</span>
+                    </a>
+                    </li>
+                </div>
+                <div class="profile_info">
+                    <img src="{% static 'panelimage/client_img.png' %}" alt="#" />
+                    <div class="profile_info_iner">
+                    <div class="profile_author_name">
+                        <p>Neurologist</p>
+                        <h5>Dr. Robar Smith</h5>
+                    </div>
+                    <div class="profile_info_details">
+                        <a href="#">My Profile </a>
+                        <a href="#">Settings</a>
+                        <a href="#">Log Out </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="main_content_iner overly_inner">
+        <div class="container-fluid p-0">
+            <div class="row">
+            <div class="col-12">
+                <div
+                class="page_title_box d-flex flex-wrap align-items-center justify-content-between"
+                >
+                <div class="page_title_left d-flex align-items-center">
+                    <h3 class="f_s_25 f_w_700 dark_text mr_30">Dashboard</h3>
+                    <ol class="breadcrumb page_bradcam mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Analytic</li>
+                    </ol>
+                </div>
+                <div class="page_title_right">
+                    <div class="page_date_button d-flex align-items-center">
+                    <img src="{% static 'panelimage/icon/calender_icon.svg' %}" alt="" />
+                        {% now "jS F Y H:i" %}
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-xl-8">
+                <div class="white_card mb_30 card_height_100">
+                <div class="white_card_header">
+                    <div
+                    class="row align-items-center justify-content-between flex-wrap"
+                    >
+                    <div class="col-lg-4">
+                        <div class="main-title">
+                        <h3 class="m-0">Ask to add your property </h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="white_card_body">
+                    <div class='mb-3'>
+                        <div class="f_w_600">
+                            <h6 class="mb-3">write a complete description about your property</h6>
+                        </div>
+                        <textarea
+                        type="text"
+                        class="form-control"
+                        name="description"
+                        id="inputText"
+                        placeholder="Text Input"
+                        ></textarea>
+                    </div>
+                    <div class='mb-3'>
+                        <div class="f_w_600">
+                            <h6 class="mb-3">upload an image from your home</h6>
+                        </div>
+                         <input type="file" class="" id="exampleFormControlFile1" />
+                    </div>
+                    <div class='mb-3'>
+                        <div class="f_w_600">
+                            <h6 class="mb-3">Write down your email</h6>
+                        </div>
+                            <input
+                            type="email"
+                            class="form-control"
+                            name="inputEmail"
+                            id="inputEmail"
+                            placeholder="name@example.com"
+                        />
+                    </div>
+                    <div class='mb-3'>
+                        <button
+                        type="button"
+                        class="btn btn-success rounded-pill mb-3"
+                        >
+                        Send Your request
+                      </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="white_card card_height_100 mb_30 user_crm_wrapper">
+                <div class="row">
+                    <div class="col-lg-6">
+                    <div class="single_crm">
+                        <div
+                        class="crm_head d-flex align-items-center justify-content-between"
+                        >
+                        <div class="thumb">
+                            <img src="{% static 'panelimage/crm/businessman.svg' %}" alt="" />
+                        </div>
+                        <i class="fas fa-ellipsis-h f_s_11 white_text"></i>
+                        </div>
+                        <div class="crm_body">
+                        <h4>{{saved_properties}}</h4>
+                        <p>Saved Properties</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="single_crm">
+                        <div
+                        class="crm_head crm_bg_1 d-flex align-items-center justify-content-between"
+                        >
+                        <div class="thumb">
+                            <img src="{% static 'panelimage/crm/customer.svg' %}" alt="" />
+                        </div>
+                        <i class="fas fa-ellipsis-h f_s_11 white_text"></i>
+                        </div>
+                        <div class="crm_body">
+                        <h4>2455</h4>
+                        <p>User Registrations</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="single_crm">
+                        <div
+                        class="crm_head crm_bg_2 d-flex align-items-center justify-content-between"
+                        >
+                        <div class="thumb">
+                            <img src="{% static 'panelimage/crm/infographic.svg' %}" alt="" />
+                        </div>
+                        <i class="fas fa-ellipsis-h f_s_11 white_text"></i>
+                        </div>
+                        <div class="crm_body">
+                        <h4>2455</h4>
+                        <p>User Registrations</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="single_crm">
+                        <div
+                        class="crm_head crm_bg_3 d-flex align-items-center justify-content-between"
+                        >
+                        <div class="thumb">
+                            <img src="{% static 'panelimage/crm/sqr.svg' %}" alt="" />
+                        </div>
+                        <i class="fas fa-ellipsis-h f_s_11 white_text"></i>
+                        </div>
+                        <div class="crm_body">
+                        <h4>2455</h4>
+                        <p>User Registrations</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="crm_reports_bnner" style="  background-image: url({% static 'panelimage/crm/bg.svg' %});">
+                    <div class="row justify-content-end">
+                    <div class="col-lg-6">
+                        <h4>Create CRM Reports</h4>
+                        <p>Outlines keep you and honest indulging honest.</p>
+                        <a href="#"
+                        >Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="white_card mb_30 card_height_100">
+                <div class="white_card_header">
+                    <div
+                    class="row align-items-center justify-content-between flex-wrap"
+                    >
+                    <div class="col-lg-4">
+                        <div class="main-title">
+                        <h3 class="m-0">Compare properties </h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="white_card_body main_box">
+                    <div class="compare_box1">
+                    <form method="POST" action="{% url 'compare' %}">
+                        {% csrf_token %}
+                            <select name='p1' class="form-select" aria-label="Default select example">
+                                <option selected>Choose a Property to Compare</option>
+                                {% for property in properties %}
+                                        <option value="{{property.id}}">{{property.title}} in {{property.Region.city}} </option>
+                                    {% endfor %}
+                                </select>
+                        </div>
+                        <div class="compare_box2">
+                                <select name='p2' class="form-select" aria-label="Default select example">
+                                    <option selected>Choose a Property to Compare</option>
+                                    {% for property in properties %}
+                                        <option value="{{property.id}}">{{property.title}} in {{property.Region.city}}</option>
+                                    {% endfor %}
+                                </select>
+                        </div>
+                        </div>
+                        <div class='mb-3'>
+                            <input
+                            type="submit"
+                            class="btn btn-success rounded-pill mb-3"
+                            value="Send Your request"
+                            >
+                        </div>
+                    </form>
+                    {% if compare_property1 and compare_property2 is not None %}
+                    <div class="main_box">
+                        <div class="property_box1">
+                            <div class='property_image'><img src="{{compare_property1.image.url}}"/></div>
+                            <div><h5>{{compare_property1.title}}</h5></div>
+                            <a href="{% url 'properties_detail' compare_property1.id %}">Watch Property</a>
+                            <p>Bed Rooms : {{compare_property1.Bed_Rooms}}</p>
+                            <p>Bath Room : {{compare_property1.Bath_Rooms}}</p>
+                            <p>Garages : {{compare_property1.Garage}}</p>
+                            <p>Year Build : {{compare_property1.Year_Build.date.year}}</p>
+                            {% if compare_property1.Luggage %}
+                                <p>Luggae : <i class="fa-solid fa-check"></i></p>
+                            {% else %}
+                                <p>Luggae :<i class="fa-solid fa-xmark-large"></i></p>
+                            {% endif %}
+                            <p>Status : {{compare_property1.status}}</p>
+                            <h5>Price : {{compare_property1.price|intcomma}}</h5>
+                        </div>
+
+                        <div class="property_box2">
+                            <div class='property_image'><img src="{{compare_property2.image.url}}"/></div>
+                            <div><h5>{{compare_property2.title}}</h5></div>
+                            <a href="{% url 'properties_detail' compare_property2.id %}">Watch Property</a>
+                            <p>Bed Rooms : {{compare_property2.Bed_Rooms}}</p>
+                            <p>Bath Room : {{compare_property2.Bath_Rooms}}</p>
+                            <p>Garages : {{compare_property2.Garage}}</p>
+                            <p>Year Build : {{compare_property2.Year_Build.date.year}}</p>
+                            {% if compare_property2.Luggage %}
+                                <p>Luggae : <i class="fa-solid fa-check"></i></p>
+                            {% else %}
+                                <p>Luggae :<i class="fa-solid fa-xmark-large"></i></p>
+                            {% endif %}
+                            <p>Status : {{compare_property2.status}}</p>
+                            <h5>Price : {{compare_property2.price|intcomma}}</h5>
+                        </div>
+
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+    <!--back top button will active by scrolling-->
+    <div id="back-top" style="display: none">
+        <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+        </a>
+    </div>
+    <!--back top button will active by scrolling-->
+
+
+
+{% endblock body %}

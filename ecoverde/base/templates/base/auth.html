@@ -1,0 +1,109 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}Agents{% endblock title %}
+
+{% block profile %}active{% endblock profile %}
+
+
+{% block body %}
+
+
+  <section
+  class="hero-wrap hero-wrap-2"
+  style="
+    background-image: url({% static 'images/xbg_1.jpg.pagespeed.ic.XHJORU-GJg.jpg' %});
+  "
+  data-stellar-background-ratio="0.5"
+  >
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+    >
+      <div class="col-md-9 ftco-animate pb-0 text-center">
+        <p class="breadcrumbs">
+          <span class="mr-2"
+            ><a href="index.html"
+              >Home <i class="fa fa-chevron-right"></i></a
+          ></span>
+          <span>authentication <i class="fa fa-chevron-right"></i></span>
+        </p>
+        <h1 class="mb-3 bread">authentication</h1>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section class="ftco-section ftco-agent">
+  <div class="container">
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if page == "login" %}
+    <!------------------ login form -------------------->
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <span class="subheading">Login</span>
+        <h2 class="mb-4">Login Form</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="texty" name='username' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-check">
+              {% if request.user.is_authenticated %}
+                <!--pass-->
+              {% else %}
+                <a class="form-check-label" href="{% url 'signup' %}">create an account.</a>
+              {% endif %}
+            </div>
+            <input type="submit" class="btn btn-primary">
+        </form>   
+    <!------------------ login form -------------------->
+    {% else %}
+    <!------------------ signup form -------------------->
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+            <span class="subheading">Signup</span>
+            <h2 class="mb-4">Signup Form</h2>
+            </div>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{form}}
+            <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+              <div><a href="{% url 'login' %}">have an account ?</a></div>
+            <input type="submit" class="btn btn-primary">
+        </form>   
+    <!------------------ signup form -------------------->
+    {% endif %}
+
+    </div>
+
+
+  </div>
+  </section>
+
+
+{% endblock body %}

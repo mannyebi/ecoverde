@@ -1,0 +1,295 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Property Detail{% endblock title %}
+
+{% block properties %}active{% endblock properties %}
+
+{% block body %}
+
+
+    <section
+    class="hero-wrap hero-wrap-2"
+    style="
+    background-image: url({% static 'images/xbg_1.jpg.pagespeed.ic.XHJORU-GJg.jpg' %});
+    "
+    data-stellar-background-ratio="0.5"
+    >
+    <div class="overlay"></div>
+    <div class="container">
+    <div
+        class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+    >
+        <div class="col-md-9 ftco-animate pb-0 text-center">
+        <p class="breadcrumbs">
+            <span class="mr-2"
+            ><a href="index.html"
+                >Home <i class="fa fa-chevron-right"></i></a
+            ></span>
+            <span class="mr-2"
+            ><a href="properties.html"
+                >Properties <i class="fa fa-chevron-right"></i></a
+            ></span>
+            <span>Properties Single <i class="fa fa-chevron-right"></i></span>
+        </p>
+        <h1 class="mb-3 bread">Property Details</h1>
+        </div>
+    </div>
+    </div>
+    </section>
+    <section class="ftco-section ftco-property-details">
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+        <div class="property-details">
+            <div
+            class="img"
+            style="
+                background-image: url({{property.image.url}});
+            "
+            >
+            <a href="{{property.video}}" target="_blank" class="img-video d-flex align-items-center justify-content-center" >
+                <span class="fa fa-play"></span>
+            </a>
+            {% if request.user.is_authenticated %}
+            
+                {% if property.id in properties_id and request.user in saved_properties.user %}
+
+                    <form method="POST" action="{% url 'dislike' property.id  %}">
+                        
+                        {% csrf_token %}
+                        <input type='submit' value='dislike' class="like_btn" >
+                        
+                    </form>
+
+                {% else %}
+
+                    <form method="POST" action="{% url 'properties_detail' property.id %}">
+                        
+                        {% csrf_token %}
+                        <input type='submit' value='like' class="like_btn" >
+
+                    </form>
+
+                {% endif %}
+                
+            {% endif %}
+            </div>
+            <div class="text">
+            <span class="subheading">{{property.region.city}}</span>
+            <p>{{property.description}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pills">
+        <div class="bd-example bd-example-tabs">
+            <div class="d-flex">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                <a
+                    class="nav-link active"
+                    id="pills-description-tab"
+                    data-toggle="pill"
+                    href="#pills-description"
+                    role="tab"
+                    aria-controls="pills-description"
+                    aria-expanded="true"
+                    >Features</a
+                >
+                </li>
+                <li class="nav-item">
+                <a
+                    class="nav-link"
+                    id="pills-manufacturer-tab"
+                    data-toggle="pill"
+                    href="#pills-manufacturer"
+                    role="tab"
+                    aria-controls="pills-manufacturer"
+                    aria-expanded="true"
+                    >Areas</a
+                >
+                </li>
+                <li class="nav-item">
+                <a
+                    class="nav-link"
+                    id="pills-review-tab"
+                    data-toggle="pill"
+                    href="#pills-review"
+                    role="tab"
+                    aria-controls="pills-review"
+                    aria-expanded="true"
+                    >Images</a
+                >
+                </li>
+            </ul>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+            <div
+                class="tab-pane fade show active"
+                id="pills-description"
+                role="tabpanel"
+                aria-labelledby="pills-description-tab"
+            >
+                <div class="row">
+                    <div class="col-md-5">
+                        <ul class="features">
+                            <li class="check">
+                                <span class="fa fa-check-circle"></span>Lot Area:
+                                {{property.Lot_Area}} SQ FT
+                            </li>
+                            <li class="check">
+                                <span class="fa fa-check-circle"></span>Bed Rooms: {{property.Bed_Rooms}}
+                            </li>
+                            <li class="check">
+                                <span class="fa fa-check-circle"></span>Bath Rooms: {{property.Bath_Rooms}}
+                            </li>
+                            {% if property.Luggage %}
+                                <li class="check">
+                                    <span class="fa fa-check-circle"></span>Luggage <i class="fa-solid fa-check"></i>
+                                </li>
+                            {% else %}
+                                <li class="check">
+                                    <span class="fa fa-check-circle"></span>Luggage no <i class="fa-solid fa-xmark-large"></i>
+                                </li>
+                            {% endif %}
+                            <li class="check">
+                                <span class="fa fa-check-circle"></span>Garage: {{property.Garage}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="features">
+                        <li class="check">
+                            <span class="fa fa-check-circle"></span>Floor Area:
+                            {{property.Floor_Area}} SQ FT
+                        </li>
+                        <li class="check">
+                            <span class="fa fa-check-circle"></span>Year Build:
+                            {{property.Year_Build.date.year}}
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="tab-pane fade"
+                id="pills-manufacturer"
+                role="tabpanel"
+                aria-labelledby="pills-manufacturer-tab"
+            >
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                    {% for area in areas %}
+
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{area.id}}" aria-expanded="false" aria-controls="flush-{{area.id}}">
+                            {{area.area}}
+                            </button>
+                        </h2>
+                        <div id="flush-{{area.id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <!--modal-->
+                                <!-- Button trigger modal -->
+                                <button type="button" style="margin:1rem 0 0 1rem" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{area.id}}">
+                                    click to see images
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal{{area.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{area.area}} images</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" style="width:100%;display:flex;flex-direction: row;">
+                                                <div class="">
+                                                    {% for image in images %}
+                                                        {% if image.area.id == area.id %}
+                                                            <a href="{{image.image.url}}"><img class='mb-2' src="{{image.image.url}}" alt="Lights" style="width:49%;height:auto"></a>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                {% for panorama in panoramas %}
+                                                    {% if panorama.area.id == area.id %}
+                                                        <div class="wrap" style="width:100%;display:flex;flex-direction: row;">
+                                                            <div id="{{panorama.id}}" style="width:100;height:50vh;"></div>
+                                                            <script>
+                                                            pannellum.viewer('{{panorama.id}}', {
+                                                                "type": "equirectangular",
+                                                                "panorama": '{{panorama.image_link}}',
+                                                                "title": "{{panorama.area}}",
+                                                                "compass": true,
+                                                            });
+                                                            </script>
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!---->
+                            
+                            <div class="accordion-body">{{area.description}}</div>
+                        </div>
+                        </div>
+                        
+                    {% endfor %}
+                    
+                </div>
+
+            </div>
+
+            <div
+                class="tab-pane fade"
+                id="pills-review"
+                role="tabpanel"
+                aria-labelledby="pills-review-tab"
+            >
+                
+                    <div class="image_box">
+
+                        <div class='normal_image'>
+                            {% for image in images %}
+                                <a href='{{image.image.url}}'><img style='display:inline' src="{{image.image.url}}" class="img-fluid mb-1" width="50%; height:auto"></a>
+                            {% endfor %}
+                        </div>
+                            
+                        <div class='panorama_image'>
+
+                            {% for panorama in panoramas %}
+                                <div class="wrap" style="width:100%;display:flex;flex-direction: row;">
+                                    <div id="a{{panorama.id}}" style="width:100;height:50vh;"></div>
+                                    <script>
+                                    pannellum.viewer('a{{panorama.id}}', {
+                                        "type": "equirectangular",
+                                        "panorama": '{{panorama.image_link}}',
+                                        "title": "{{panorama.area}}",
+                                        "compass": true,
+                                    });
+                                    </script>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </section>
+
+
+{% endblock body %}
