@@ -1,13 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from matplotlib.style import context
 from .models import Areas, Blog_tag, Blogs, Panorama, Properties, Image, Property_type, Region, SavedProperties, User
 from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .forms import MyUserCreationForm
-from django.shortcuts import get_object_or_404
 
 
 
